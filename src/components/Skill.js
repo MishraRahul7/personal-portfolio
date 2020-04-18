@@ -149,6 +149,10 @@ const Skill = () => {
                 <Icon icon={checkBold} color="#ed1c24"></Icon>
                 <Typography>{data.skills[7].name}</Typography>
               </ListItem>
+              <ListItem>
+                <Icon icon={checkBold} color="#ed1c24"></Icon>
+                <Typography>{data.skills[10].name}</Typography>
+              </ListItem>
             </List>
           </Paper>
         </Grid>

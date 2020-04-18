@@ -1,12 +1,16 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { makeStyles, Grid, Typography, Button } from "@material-ui/core";
-
 import { dataApi } from "../actions/index";
 import Loader from "../loader";
 import "./Styles.css";
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    position: "fixed",
+    bottom: theme.spacing(2),
+    right: theme.spacing(2),
+  },
   aboutPage: {
     minHeight: "40vh",
     backgroundColor: "#002147",
@@ -64,13 +68,14 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
 const handleClick = () => {
   window.scrollTo({
-    top: 3500,
+    top: 5000,
     behavior: "smooth",
   });
 };
-const About = () => {
+const About = (props) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.data);
@@ -83,34 +88,37 @@ const About = () => {
     return <Loader />;
   } else {
     return (
-      <Grid
-        className={classes.aboutPage}
-        container
-        justify="center"
-        alignItems="center"
-      >
-        <Grid item xs={12} md={4} className={classes.imageBox}>
-          <img className={classes.img} alt="avatar" src={data.basics.picture} />
-        </Grid>
-        <Grid item xs className={classes.intro}>
-          <Typography className={classes.typoHeading}>
-            Hello my name is
-          </Typography>
+      <>
+        <Grid
+          className={classes.aboutPage}
+          container
+          justify="center"
+          alignItems="center"
+        >
+          <Grid item xs={12} md={4} className={classes.imageBox}>
+            <img
+              className={classes.img}
+              alt="avatar"
+              src={data.basics.picture}
+            />
+          </Grid>
+          <Grid item xs className={classes.intro}>
+            <Typography className={classes.typoHeading}>
+              Hello my name is
+            </Typography>
 
-          <Typography className={classes.typoName}>
-            {data.basics.name}
-          </Typography>
-          <Typography className={classes.typoHeading}>
-            {data.basics.summary}
-          </Typography>
-          <Button
-            className={classes.hireBtn}
-            onClick={() => handleClick("firstName")}
-          >
-            Hire me
-          </Button>
+            <Typography className={classes.typoName}>
+              {data.basics.name}
+            </Typography>
+            <Typography className={classes.typoHeading}>
+              {data.basics.summary}
+            </Typography>
+            <Button className={classes.hireBtn} onClick={() => handleClick()}>
+              Hire me
+            </Button>
+          </Grid>
         </Grid>
-      </Grid>
+      </>
     );
   }
 };
