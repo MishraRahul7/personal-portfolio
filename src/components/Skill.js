@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   skillPage: {
     minHeight: "100vh",
     backgroundColor: "white",
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("xs")]: {
       minHeight: "100vh",
     },
   },
@@ -45,8 +45,12 @@ const useStyles = makeStyles((theme) => ({
     width: 250,
     margin: "auto",
     color: "white",
-    padding: theme.spacing(2),
     backgroundColor: "#002147",
+    [theme.breakpoints.down("xs", "md", "sm")]: {
+      margin: "auto",
+      height: 250,
+      width: 250,
+    },
   },
   paperOnXs: {
     textAlign: "center",
@@ -68,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
     width: "2.5em",
     height: "2.5em",
     padding: "15px",
-    top: -50,
+    top: -40,
     backgroundColor: "#ed1c24",
     position: "relative",
     borderRadius: "50%",

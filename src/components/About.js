@@ -6,11 +6,6 @@ import Loader from "../loader";
 import "./Styles.css";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    position: "fixed",
-    bottom: theme.spacing(2),
-    right: theme.spacing(2),
-  },
   aboutPage: {
     minHeight: "40vh",
     backgroundColor: "#002147",
@@ -30,9 +25,10 @@ const useStyles = makeStyles((theme) => ({
   },
   intro: {
     textAlign: "start",
-    [theme.breakpoints.down("xs")]: {
+    width: "50vw",
+    [theme.breakpoints.down("sm")]: {
       textAlign: "center",
-      marginTop: "-30%",
+      marginTop: "-25%",
     },
   },
   typoHeading: {
@@ -47,13 +43,15 @@ const useStyles = makeStyles((theme) => ({
   typoContent: {
     marginTop: "1vh",
     color: "#fff",
-    fontWeight: "bold",
     fontSize: "1rem",
+    [theme.breakpoints.down("xs" | "sm")]: {
+      width: "100vw",
+    },
   },
   hireBtn: {
     backgroundColor: "#ed1c24",
     width: "8vw",
-    marginTop: "3em",
+    marginTop: "1em",
     borderRadius: "20px",
     color: "white",
     textTransform: "none",
@@ -63,8 +61,8 @@ const useStyles = makeStyles((theme) => ({
       color: "black",
       boxShadow: "0px 8px 16px 0px rgba(0, 0, 0, 0.2);",
     },
-    [theme.breakpoints.down("sm")]: {
-      width: "40vw",
+    [theme.breakpoints.down("sm", "xs")]: {
+      width: "20vw",
     },
   },
 }));
@@ -110,7 +108,7 @@ const About = (props) => {
             <Typography className={classes.typoName}>
               {data.basics.name}
             </Typography>
-            <Typography className={classes.typoHeading}>
+            <Typography className={classes.typoContent}>
               {data.basics.summary}
             </Typography>
             <Button className={classes.hireBtn} onClick={() => handleClick()}>

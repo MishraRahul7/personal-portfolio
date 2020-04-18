@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "100vh",
     backgroundColor: "white",
     [theme.breakpoints.down("sm")]: {
-      height: "auto",
+      minHeight: "100vh",
     },
   },
 
@@ -51,13 +51,13 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Roboto,sens-serif",
   },
   eduPaper: {
-    height: "50vh",
-    width: "30vw",
+    minHeight: "50vh",
+    minWidth: "30vw",
     margin: "auto",
     backgroundColor: "#002147",
     [theme.breakpoints.down("xs")]: {
       width: "80vw",
-      height: "auto",
+      margin: "auto",
       marginBottom: "1em",
     },
   },
@@ -99,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
   headContent: {
     textAlign: "center",
     marginTop: "-25vh",
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("xs", "sm")]: {
       marginTop: "10vh",
     },
   },
@@ -128,7 +128,7 @@ const useStyles = makeStyles((theme) => ({
       boxShadow: "0px 8px 16px 0px rgba(0, 0, 0, 0.2);",
     },
     [theme.breakpoints.down("sm")]: {
-      width: "40vw",
+      width: "10vw",
     },
   },
   backBtn: {
@@ -145,7 +145,7 @@ const useStyles = makeStyles((theme) => ({
       boxShadow: "0px 8px 16px 0px rgba(0, 0, 0, 0.2);",
     },
     [theme.breakpoints.down("sm")]: {
-      width: "40vw",
+      width: "10vw",
     },
   },
 }));

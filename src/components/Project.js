@@ -88,7 +88,6 @@ const Project = () => {
   const classes = useStyles();
   const { data } = useSelector((state) => state.data);
 
-  console.log(data);
   if (!data) {
     return null;
   } else {

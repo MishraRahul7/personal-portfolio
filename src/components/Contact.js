@@ -23,11 +23,23 @@ const useStyles = makeStyles((theme) => ({
   },
   headContent: {
     textAlign: "center",
+    height: "auto",
     width: "100%",
-    [theme.breakpoints.down("xs")]: {
+    marginTop: "10vh",
+    [theme.breakpoints.down("xs" | "sm")]: {
       marginTop: "10vh",
     },
   },
+  contactPaper1: {
+    textAlign: "center",
+    height: "auto",
+    width: "100%",
+    marginBottom: "2em",
+    [theme.breakpoints.down("xs" | "sm")]: {
+      marginTop: "10vh",
+    },
+  },
+
   getInTouch: {
     textAlign: "center",
     color: "#002147",
@@ -50,11 +62,6 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     fontSize: "1rem",
   },
-  imageBox: {
-    paddingTop: "1em",
-    textAlign: "center",
-    [theme.breakpoints.down("sm")]: { textAlign: "center" },
-  },
   headLine: {
     margin: "1em 0em 1em 0em",
     color: "#002147",
@@ -73,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
     width: "30vw",
     margin: "auto",
     backgroundColor: "white",
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("xs" | "sm" | "md")]: {
       width: "80vw",
       height: "auto",
       marginBottom: "1em",
@@ -91,15 +98,16 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "roboto,serif",
     textAlign: "center",
   },
-  projectPaper: {
-    height: "50vh",
+  contactPaper1_1: {
+    height: "auto",
+    textAlign: "center",
     width: "30vw",
     margin: "auto",
     backgroundColor: "white",
     [theme.breakpoints.down("xs")]: {
       width: "80vw",
       height: "auto",
-      marginBottom: "1em",
+      marginBottom: "2em",
     },
   },
   tagline: {
@@ -135,22 +143,16 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     textDecoration: "none",
     transition: "all .4s ease",
+    marginBottom: "1em",
     "&:hover": {
       backgroundColor: "#002147",
       textDecoration: "none",
       boxShadow: "0px 8px 16px 0px rgba(0, 0, 0, 0.2);",
     },
     [theme.breakpoints.down("sm")]: {
-      width: "40vw",
+      width: "10vw",
       textAlign: "center",
-      marginBottom: "1em",
     },
-  },
-  paper: {
-    marginTop: theme.spacing(4),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -185,18 +187,8 @@ const Contact = () => {
           </Typography>
         </Grid>
 
-        <Grid item xs={12} md={4} className={classes.headContent}>
-          <Paper elevation={4} className={classes.contact}>
-            <Grid item xs={12} className={classes.imageBox}>
-              <img
-                className={classes.constactImage}
-                alt="avatar"
-                src={data.basics.picture}
-              />
-            </Grid>
-            <Typography className={classes.headLine}>
-              {`" ${data.basics.headline} "`}
-            </Typography>
+        <Grid item xs={12} className={classes.contactPaper1}>
+          <Paper elevation={4} className={classes.contactPaper1_1}>
             <Typography className={classes.head2}>
               You can also find me on the following channels
             </Typography>
@@ -275,8 +267,8 @@ const Contact = () => {
             </Grid>
           </Paper>
         </Grid>
-        <Grid item xs={12} md={4} className={classes.headContent}>
-          <Paper elevation={4} className={classes.projectPaper}>
+        <Grid item xs={12} className={classes.contactPaper1}>
+          <Paper elevation={4} className={classes.contactPaper1_1}>
             <Typography className={classes.getInTouch}>Get in touch</Typography>
             <Container component="main" maxWidth="xs">
               <div className={classes.paper}>
@@ -298,10 +290,10 @@ const Contact = () => {
                         variant="outlined"
                         required
                         fullWidth
-                        id="lastName"
-                        label="Last Name"
-                        name="lastName"
-                        autoComplete="lname"
+                        id="phone"
+                        label="Phone"
+                        name="phone"
+                        autoComplete="phone"
                       />
                     </Grid>
                     <Grid item xs={12}>
