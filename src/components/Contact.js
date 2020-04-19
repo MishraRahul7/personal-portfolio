@@ -255,7 +255,7 @@ const Contact = () => {
             </Grid>
             <Grid item xs={12} className={classes.gridItem}>
               <a
-                href="https://drive.google.com/file/d/1cZjbPiJ_jJkP21ezoWVb8hOKwE-Vt4Zc/view?usp=sharing"
+                href="https://drive.google.com/open?id=1dv4OGGcy5o-Tz-jRCIJ9je96X7IwpxVX"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ textDecoration: "none" }}
