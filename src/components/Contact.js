@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import {
   makeStyles,
@@ -163,6 +163,19 @@ const Contact = () => {
   const classes = useStyles();
   const { data } = useSelector((state) => state.data);
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [body, setMessage] = useState("");
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    setName("");
+    setEmail("");
+    setMessage("");
+    setSubject("");
+  };
+
   if (!data) {
     return null;
   } else {
@@ -171,6 +184,7 @@ const Contact = () => {
     const stackoverflow = data.basics.profiles[4].url;
     const quora = data.basics.profiles[5].url;
     const twitter = data.basics.profiles[3].url;
+
     return (
       <Grid
         justify="center"
@@ -272,39 +286,37 @@ const Contact = () => {
             <Typography className={classes.getInTouch}>Get in touch</Typography>
             <Container component="main" maxWidth="xs">
               <div className={classes.paper}>
-                <form className={classes.form} noValidate>
+                <form className={classes.form}>
                   <Grid container spacing={2}>
                     <Grid item xs={12} sm={6}>
                       <TextField
-                        autoComplete="fname"
-                        name="firstName"
+                        autoComplete="name"
+                        name="name"
                         variant="outlined"
-                        required
                         fullWidth
-                        id="firstName"
-                        label="First Name"
+                        label="Name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                       />
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <TextField
                         variant="outlined"
-                        required
                         fullWidth
-                        id="phone"
-                        label="Phone"
-                        name="phone"
-                        autoComplete="phone"
+                        label="Email"
+                        name="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                       />
                     </Grid>
                     <Grid item xs={12}>
                       <TextField
                         variant="outlined"
-                        required
                         fullWidth
-                        id="email"
-                        label="Email Address"
-                        name="email"
-                        autoComplete="email"
+                        label="Subject"
+                        name="subject"
+                        value={subject}
+                        onChange={(e) => setSubject(e.target.value)}
                       />
                     </Grid>
                     <Grid item xs={12}>
@@ -315,8 +327,8 @@ const Contact = () => {
                         fullWidth
                         name="message"
                         label="Enter your message"
-                        type="message"
-                        id="message"
+                        value={body}
+                        onChange={(e) => setMessage(e.target.value)}
                       />
                     </Grid>
                   </Grid>
@@ -329,11 +341,15 @@ const Contact = () => {
                   >
                     <Grid item xs={12} md={4} style={{ textAlign: "center" }}>
                       <a
-                        href={`mailto:${data.basics.email}`}
+                        href={`mailto:${data.basics.email}?subject=${subject} &body=${body}`}
                         target="_top"
                         style={{ textDecoration: "none" }}
                       >
-                        <Button variant="contained" className={classes.nextBtn}>
+                        <Button
+                          onBlur={handleSubmit}
+                          variant="contained"
+                          className={classes.nextBtn}
+                        >
                           submit
                         </Button>
                       </a>
@@ -342,11 +358,11 @@ const Contact = () => {
                 </form>
               </div>
             </Container>
-            {/* */}
           </Paper>
         </Grid>
       </Grid>
     );
   }
 };
+
 export default Contact;
