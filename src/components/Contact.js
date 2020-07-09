@@ -269,7 +269,7 @@ const Contact = () => {
             </Grid>
             <Grid item xs={12} className={classes.gridItem}>
               <a
-                href="https://drive.google.com/open?id=1dv4OGGcy5o-Tz-jRCIJ9je96X7IwpxVX"
+                href="https://drive.google.com/file/d/13Pylb0wgVgyZj6UmguMwuv4VLl6P0s_l/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ textDecoration: "none" }}
