@@ -174,7 +174,6 @@ const Project = () => {
                 <span className={classes.projectLanguage}>
                   {data.projects[1].libraries[0]}
                 </span>
-                <br />
                 <span className={classes.projectLanguage}>
                   {data.projects[1].libraries[1]}
                 </span>
@@ -219,11 +218,10 @@ const Project = () => {
                 <span className={classes.projectLanguage}>
                   {data.projects[2].libraries[1]}
                 </span>
-
+                <br />
                 <span className={classes.projectLanguage}>
                   {data.projects[2].libraries[2]}
                 </span>
-                <br />
                 <span className={classes.projectLanguage}>
                   {data.projects[2].libraries[3]}
                 </span>
