@@ -4,7 +4,7 @@ import {
   makeStyles,
   Typography,
   Grid,
-  // Link,
+  Link,
   Card,
   CardMedia,
   CardContent,
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   projectCard: {
     textAlign: "center",
     margin: "auto",
-    height: "auto",
+    height: 420,
     width: 300,
   },
   headContent: {
@@ -82,11 +82,17 @@ const useStyles = makeStyles((theme) => ({
       width: "40vw",
     },
   },
+  librariesAndTools: {
+    backgroundColor: "blue",
+    width: "90%",
+    height: "auto",
+  },
 }));
 
 const Project = () => {
   const classes = useStyles();
   const { data } = useSelector((state) => state.data);
+  console.log(data);
 
   if (!data) {
     return null;
@@ -126,13 +132,10 @@ const Project = () => {
                   {data.projects[0].languages[0]}
                 </span>
                 <span className={classes.projectLanguage}>
-                  {data.projects[0].libraries[0]}
-                </span>
-                <span className={classes.projectLanguage}>
                   {data.projects[0].libraries[1]}
                 </span>
                 <span className={classes.projectLanguage}>
-                  {data.projects[0].libraries[2]}
+                  {data.projects[0].libraries[0]}
                 </span>
               </Typography>
             </CardContent>
@@ -140,46 +143,6 @@ const Project = () => {
                     href={data.projects[0].githubUrl} >
               <Button className={classes.viewBtn}>View</Button>
             </Link> */}
-          </Card>
-        </Grid>{" "}
-        <Grid item xs={12} md={4} className={classes.cardGridItem}>
-          <Card elevation={4} className={classes.projectCard}>
-            <CardMedia
-              component="img"
-              alt="Weather Project"
-              height="140"
-              image={data.projects[0].images[0].resolutions.desktop.url}
-              title="Weather Project"
-            />
-            <CardContent>
-              <Typography className={classes.head}>
-                {data.projects[0].name}
-              </Typography>
-              <Typography className={classes.projectSummary}>
-                {data.projects[0].summary}
-              </Typography>
-              <Typography className={classes.projectTools}>
-                Libraries and Tools
-              </Typography>
-              <Typography>
-                <span className={classes.projectLanguage}>
-                  {data.projects[0].languages[0]}
-                </span>
-                <span className={classes.projectLanguage}>
-                  {data.projects[0].libraries[0]}
-                </span>
-                <span className={classes.projectLanguage}>
-                  {data.projects[0].libraries[1]}
-                </span>
-                <span className={classes.projectLanguage}>
-                  {data.projects[0].libraries[2]}
-                </span>
-              </Typography>
-            </CardContent>
-            {/* <Link style={{ textDecoration: "none" }}
-                  href={data.projects[0].githubUrl} >
-            <Button className={classes.viewBtn}>View</Button>
-          </Link> */}
           </Card>
         </Grid>{" "}
         <Grid item xs={12} md={4} className={classes.cardGridItem}>
@@ -206,13 +169,14 @@ const Project = () => {
                   {data.projects[1].languages[0]}
                 </span>
                 <span className={classes.projectLanguage}>
+                  {data.projects[1].libraries[2]}
+                </span>
+                <span className={classes.projectLanguage}>
                   {data.projects[1].libraries[0]}
                 </span>
+                <br />
                 <span className={classes.projectLanguage}>
                   {data.projects[1].libraries[1]}
-                </span>
-                <span className={classes.projectLanguage}>
-                  {data.projects[1].libraries[2]}
                 </span>
               </Typography>
             </CardContent>
@@ -224,6 +188,59 @@ const Project = () => {
             </Link> */}
           </Card>
         </Grid>
+        <Grid item xs={12} md={4} className={classes.cardGridItem}>
+          <Card elevation={4} className={classes.projectCard}>
+            <Link href={data.projects[2].website}>
+              <CardMedia
+                component="img"
+                alt="MADAD Project"
+                height="140"
+                image={data.projects[2].images[0].resolutions.desktop.url}
+                title="MADAD Project"
+              />
+            </Link>
+            <CardContent>
+              <Typography className={classes.head}>
+                {data.projects[2].name}
+              </Typography>
+              <Typography className={classes.projectSummary}>
+                {data.projects[2].summary}
+              </Typography>
+              <Typography className={classes.projectTools}>
+                Libraries and Tools
+              </Typography>
+              <Typography>
+                <span className={classes.projectLanguage}>
+                  {data.projects[2].languages[0]}
+                </span>
+                <span className={classes.projectLanguage}>
+                  {data.projects[2].libraries[0]}
+                </span>
+                <span className={classes.projectLanguage}>
+                  {data.projects[2].libraries[1]}
+                </span>
+
+                <span className={classes.projectLanguage}>
+                  {data.projects[2].libraries[2]}
+                </span>
+                <br />
+                <span className={classes.projectLanguage}>
+                  {data.projects[2].libraries[3]}
+                </span>
+                <span className={classes.projectLanguage}>
+                  {data.projects[2].libraries[4]}
+                </span>
+                <span className={classes.projectLanguage}>
+                  {data.projects[2].libraries[5]}
+                </span>
+              </Typography>
+            </CardContent>
+            {/* <Link style={{ textDecoration: "none" }}
+                  href={data.projects[0].githubUrl} >
+            <Button className={classes.viewBtn}>View</Button>
+          </Link> */}
+          </Card>
+        </Grid>{" "}
       </Grid>
     );
   }
