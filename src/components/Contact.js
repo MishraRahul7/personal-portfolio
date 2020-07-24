@@ -176,6 +176,8 @@ const Contact = () => {
     setSubject("");
   };
 
+  console.log(data);
+
   if (!data) {
     return null;
   } else {
@@ -269,7 +271,7 @@ const Contact = () => {
             </Grid>
             <Grid item xs={12} className={classes.gridItem}>
               <a
-                href="https://drive.google.com/file/d/13Pylb0wgVgyZj6UmguMwuv4VLl6P0s_l/view?usp=sharing"
+                href={data.publications[0].website}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ textDecoration: "none" }}
